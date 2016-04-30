@@ -4,7 +4,7 @@
 #
 Name     : XStatic
 Version  : 1.0.1
-Release  : 12
+Release  : 13
 URL      : https://pypi.python.org/packages/source/X/XStatic/XStatic-1.0.1.tar.gz
 Source0  : https://pypi.python.org/packages/source/X/XStatic/XStatic-1.0.1.tar.gz
 Summary  : XStatic base package with minimal support code
