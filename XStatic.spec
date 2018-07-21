@@ -6,17 +6,18 @@
 #
 Name     : XStatic
 Version  : 1.0.1
-Release  : 17
+Release  : 18
 URL      : http://pypi.debian.net/XStatic/XStatic-1.0.1.tar.gz
 Source0  : http://pypi.debian.net/XStatic/XStatic-1.0.1.tar.gz
-Source99 : https://pypi.python.org/packages/source/X/XStatic/XStatic-1.0.1.tar.gz.asc
+Source99 : http://pypi.debian.net/XStatic/XStatic-1.0.1.tar.gz.asc
 Summary  : XStatic base package with minimal support code
 Group    : Development/Tools
 License  : MIT
+Requires: XStatic-python3
 Requires: XStatic-python
+BuildRequires : buildreq-distutils3
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
@@ -31,10 +32,20 @@ BuildRequires : setuptools
 %package python
 Summary: python components for the XStatic package.
 Group: Default
+Requires: XStatic-python3
 Provides: xstatic-python
 
 %description python
 python components for the XStatic package.
+
+
+%package python3
+Summary: python3 components for the XStatic package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the XStatic package.
 
 
 %prep
@@ -45,15 +56,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1503083638
-python2 setup.py build -b py2
+export SOURCE_DATE_EPOCH=1532213884
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1503083638
 rm -rf %{buildroot}
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -63,5 +71,7 @@ echo ----[ mark ]----
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python2*/*
+
+%files python3
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
