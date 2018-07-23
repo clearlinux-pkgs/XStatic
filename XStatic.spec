@@ -6,10 +6,10 @@
 #
 Name     : XStatic
 Version  : 1.0.1
-Release  : 18
-URL      : http://pypi.debian.net/XStatic/XStatic-1.0.1.tar.gz
-Source0  : http://pypi.debian.net/XStatic/XStatic-1.0.1.tar.gz
-Source99 : http://pypi.debian.net/XStatic/XStatic-1.0.1.tar.gz.asc
+Release  : 19
+URL      : https://files.pythonhosted.org/packages/3e/30/726b61d07abd031b32db956adfbcf8924687e07879c1b63b777855c75289/XStatic-1.0.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/3e/30/726b61d07abd031b32db956adfbcf8924687e07879c1b63b777855c75289/XStatic-1.0.1.tar.gz
+Source99 : https://files.pythonhosted.org/packages/3e/30/726b61d07abd031b32db956adfbcf8924687e07879c1b63b777855c75289/XStatic-1.0.1.tar.gz.asc
 Summary  : XStatic base package with minimal support code
 Group    : Development/Tools
 License  : MIT
@@ -56,7 +56,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1532213884
+export SOURCE_DATE_EPOCH=1532324926
 python3 setup.py build -b py3
 
 %install
